@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>leetcode——从先序遍历还原二叉树 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="题目描述我们从二叉树的根节点 root 开始进行深度优先搜索。 在遍历中的每个节点处，我们输出 D 条短划线（其中 D 是该节点的深度），然后输出该节点的值。（如果节点的深度为 D，则其直接子节点的深度为 D + 1。根节点的深度为 0）。 如果节点只有一个子节点，那么保证该子节点为左子节点。 给出遍历输出 S，还原树并返回其根节点 root。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode——从先序遍历还原二叉树">
+<meta property="og:url" content="http://yoursite.com/2020/05/09/leetcode%E2%80%94%E2%80%94%E4%BB%8E%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BF%98%E5%8E%9F%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目描述我们从二叉树的根节点 root 开始进行深度优先搜索。 在遍历中的每个节点处，我们输出 D 条短划线（其中 D 是该节点的深度），然后输出该节点的值。（如果节点的深度为 D，则其直接子节点的深度为 D + 1。根节点的深度为 0）。 如果节点只有一个子节点，那么保证该子节点为左子节点。 给出遍历输出 S，还原树并返回其根节点 root。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:%5CUsers%5C%E6%B2%88%E5%A5%95%E7%8F%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1589011777371.png">
+<meta property="article:published_time" content="2020-05-09T08:08:18.778Z">
+<meta property="article:modified_time" content="2020-05-09T08:25:35.746Z">
 <meta property="article:author" content="乌拉乌拉">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5C%E6%B2%88%E5%A5%95%E7%8F%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1589011777371.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,295 +156,159 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-leetcode——从先序遍历还原二叉树" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      leetcode——从先序遍历还原二叉树
+    </h1>
+  
+
+        
+        <a href="/2020/05/09/leetcode%E2%80%94%E2%80%94%E4%BB%8E%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BF%98%E5%8E%9F%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-05-09T08:08:18.778Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们从二叉树的根节点 root 开始进行深度优先搜索。</p>
+<p>在遍历中的每个节点处，我们输出 D 条短划线（其中 D 是该节点的深度），然后输出该节点的值。（如果节点的深度为 D，则其直接子节点的深度为 D + 1。根节点的深度为 0）。</p>
+<p>如果节点只有一个子节点，那么保证该子节点为左子节点。</p>
+<p>给出遍历输出 S，还原树并返回其根节点 root。</p>
+<p><img src="C:%5CUsers%5C%E6%B2%88%E5%A5%95%E7%8F%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1589011777371.png" alt="1589011777371"></p>
+<a id="more"></a>
+
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用栈保存结点，栈头就是当前要建结点的父节点，栈的大小就是当前深度。</p>
+<p>先写一个函数得到数字长度length  = newi - oldi；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getNum</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] &gt;= <span class="string">'0'</span> &amp;&amp; s[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">    	++i;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再写一个函数得到‘-’长度，length  = newi - oldi；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getNum</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] &gt;= <span class="string">'0'</span> &amp;&amp; s[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">    	++i;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果-的长度等于栈的大小，说明栈顶的节点就是该节点的父节点</p>
+<p>如果-的长度大于栈的大小，说明栈顶的节点就是该节点的父节点</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findNum</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] &gt;= <span class="string">'0'</span> &amp;&amp; s[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">    	++i;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findDep</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] &gt;= <span class="string">'0'</span> &amp;&amp; s[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">    	++i;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode* <span class="title">recoverFromPreorder</span><span class="params">(<span class="built_in">string</span> S)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;TreeNode* &gt; st;</span><br><span class="line">	<span class="keyword">int</span> i = findNum(S, <span class="number">0</span>);</span><br><span class="line">    TreeNode* root = <span class="keyword">new</span> TreeNode(atoi(S.substr(<span class="number">0</span>, i).c_str()));</span><br><span class="line">    st.push(root);</span><br><span class="line">    <span class="keyword">for</span>(; i &lt; S.<span class="built_in">size</span>(); )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> r = findDep(s, i);</span><br><span class="line">        <span class="keyword">while</span>(st.<span class="built_in">size</span>() &gt; r - i)</span><br><span class="line">            st.pop();</span><br><span class="line">        TreeNode* node = st.top();</span><br><span class="line">        <span class="keyword">int</span> e = findNum(s, r);</span><br><span class="line">        <span class="keyword">int</span> num = atoi(S.substr(r, e - r).c_str() );</span><br><span class="line">        TreeNode* temp = <span class="keyword">new</span> TreeNode(num);</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;left)</span><br><span class="line">            node-&gt;right = temp;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            node-&gt;left = temp;</span><br><span class="line">        st.push(temp);</span><br><span class="line">        i = e;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-05-07T02:34:26.684Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/">数据结构——数组</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/09/leetcode%E2%80%94%E2%80%94%E4%BB%8E%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BF%98%E5%8E%9F%E4%BA%8C%E5%8F%89%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/C++Primer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/" class="archive-article-date">
-  	<time datetime="2020-05-04T13:22:02.539Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/09/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9D%A1%E5%BA%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode——二叉树的坡度
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/07/leetcode%E2%80%94%E2%80%94%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%A0%91%E7%9A%84%E5%AD%90%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode——另一个树的子树</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/C++Primer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/">C++Primer学习笔记01</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/leetcode%E2%80%94%E2%80%94%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-05-04T13:13:24.072Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/leetcode%E2%80%94%E2%80%94%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">leetcode——搜索旋转数组</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/leetcode%E2%80%94%E2%80%94%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" class="archive-article-date">
-  	<time datetime="2020-05-04T13:06:11.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/leetcode%E2%80%94%E2%80%94%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">leetcode——三数之和</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/leetcode%E2%80%94%E2%80%94%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" class="archive-article-date">
-  	<time datetime="2020-05-04T12:53:28.011Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/leetcode%E2%80%94%E2%80%94%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">leetcode——移除元素</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/%E7%BD%91%E6%98%93%E4%BA%92%E5%A8%B1%E2%80%94%E2%80%94%E6%B8%B8%E6%88%8F%E7%A0%94%E5%8F%91%E7%AC%94%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:21:34.551Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/%E7%BD%91%E6%98%93%E4%BA%92%E5%A8%B1%E2%80%94%E2%80%94%E6%B8%B8%E6%88%8F%E7%A0%94%E5%8F%91%E7%AC%94%E8%AF%95/">网易互娱——游戏研发笔试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/leetcode%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84K-diff%E6%95%B0%E5%AF%B9/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:12:07.880Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/leetcode%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84K-diff%E6%95%B0%E5%AF%B9/">leetcode——数组中的K-diff数对</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/leetcode%E2%80%94%E2%80%94%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" class="archive-article-date">
-  	<time datetime="2020-05-02T12:46:28.094Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/leetcode%E2%80%94%E2%80%94%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/">leetcode——最长公共前缀</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/leetcode%E2%80%94%E2%80%94%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2020-05-02T12:39:15.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/leetcode%E2%80%94%E2%80%94%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/">leetcode——检查平衡性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/leetcode%E2%80%94%E2%80%94%E5%90%88%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-02T12:36:20.731Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/leetcode%E2%80%94%E2%80%94%E5%90%88%E6%B3%95%E4%BA%8C%E5%8F%89%E6%A0%91/">leetcode——合法二叉树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="page-number" href="/archives/2020/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2020/page/7/">7</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +332,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

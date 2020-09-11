@@ -83,7 +83,7 @@
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/happy8046/posts" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -124,7 +124,7 @@
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/happy8046/posts" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -152,32 +152,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode——快乐数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Unity四个类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E5%BF%AB%E4%B9%90%E6%95%B0/">leetcode——快乐数</a>
+      <a class="article-title" href="/2020/07/02/Unity%E5%9B%9B%E4%B8%AA%E7%B1%BB/">Unity四个类</a>
     </h1>
   
 
         
-        <a href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E5%BF%AB%E4%B9%90%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-04-30T13:35:51.967Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+        <a href="/2020/07/02/Unity%E5%9B%9B%E4%B8%AA%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-07-02T11:19:13.730Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>编写一个算法来判断一个数 n 是不是快乐数。</p>
-<p>「快乐数」定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。如果 可以变为  1，那么这个数就是快乐数。</p>
-<p>如果 n 是快乐数就返回 True ；不是，则返回 False 。</p>
-        
-          <a class="article-more-a" href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E5%BF%AB%E4%B9%90%E6%95%B0/#more">more >></a>
-        
+        <h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><h4 id="提供了查找（在当前物体、后代、先辈）组件的功能。"><a href="#提供了查找（在当前物体、后代、先辈）组件的功能。" class="headerlink" title="提供了查找（在当前物体、后代、先辈）组件的功能。"></a>提供了查找（在当前物体、后代、先辈）组件的功能。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class ComponentScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private void OnGUI()</span><br><span class="line">    &#123;</span><br><span class="line">        if (GUILayout.Button(&quot;按钮&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            this.transform.position &#x3D; new Vector3(0, 0, 10);</span><br><span class="line">            this.GetComponent&lt;MeshRenderer&gt;().material.color &#x3D; Color.blue;</span><br><span class="line">        &#125;</span><br><span class="line">        if (GUILayout.Button(&quot;GetComponents&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;获取当前物体所有组件</span><br><span class="line">            &#x2F;&#x2F;var allComponent &#x3D; this.GetComponents&lt;Component&gt;();</span><br><span class="line">            &#x2F;&#x2F;获取后代物体的指定类型（从自身开始）</span><br><span class="line">            &#x2F;&#x2F;var allComponent &#x3D; this.GetComponentsInChildren&lt;MeshRenderer&gt;();</span><br><span class="line">            &#x2F;&#x2F;获取先辈物体的指定类型（从自身开始）</span><br><span class="line">            var allComponent &#x3D; this.GetComponentsInParent&lt;MeshRenderer&gt;();</span><br><span class="line">            foreach (var item in allComponent)</span><br><span class="line">            &#123;</span><br><span class="line">                Debug.Log(item.GetType());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h2><h4 id="提供了查找（父、根、子）变换组件，改变位置、角度、大小功能"><a href="#提供了查找（父、根、子）变换组件，改变位置、角度、大小功能" class="headerlink" title="提供了查找（父、根、子）变换组件，改变位置、角度、大小功能"></a>提供了查找（父、根、子）变换组件，改变位置、角度、大小功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class Transform : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private void OnGUI()</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;*************************查找变换组件***********************</span><br><span class="line">        if (GUILayout.Button(&quot;foreach -- transform&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            foreach(Transform child in this.transform)</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;child为每个子物体的变换组件</span><br><span class="line">                print(child.name);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (GUILayout.Button(&quot;root&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;获取根物体变换组件</span><br><span class="line">            &#x2F;&#x2F;UnityEngine.Transform rootTF &#x3D; this.transform.root;</span><br><span class="line">        &#125;</span><br><span class="line">        if (GUILayout.Button(&quot;partent&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;获取父物体变换组件</span><br><span class="line">            &#x2F;&#x2F;UnityEngine.Transform parentTF &#x3D; this.transform.parent;</span><br><span class="line">            &#x2F;&#x2F;设置父物体 视为世界坐标</span><br><span class="line">            &#x2F;&#x2F;this.transform.SetParent(tf, true);</span><br><span class="line">            &#x2F;&#x2F;设置父物体 视为localPosititon</span><br><span class="line">            &#x2F;&#x2F;this.transform.SetParent(tf, false);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (GUILayout.Button(&quot;child&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;根据名称获取子物体</span><br><span class="line">            &#x2F;&#x2F;UnityEngine.Transform childTF &#x3D; this.transform.Find(&quot;子物体名称&quot;);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;根据索引获得子物体</span><br><span class="line">            &#x2F;*</span><br><span class="line">            int count &#x3D; this.transform.childCount;</span><br><span class="line">            for( int i &#x3D; 0; i &lt; count; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                UnityEngine.Transform childTF &#x3D; this.transform.GetChild(i);</span><br><span class="line">            &#125;*&#x2F;</span><br><span class="line">        &#125;</span><br><span class="line">		&#x2F;&#x2F;*************************改变位置、角度、大小***********************</span><br><span class="line">        if (GUILayout.Button(&quot;pos &#x2F; scale&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;物体相对与世界坐标系原点的位置</span><br><span class="line">            &#x2F;&#x2F;this.transform.position</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;物体相对于父物体轴心点的位置</span><br><span class="line">            &#x2F;&#x2F;this.transform.localPosition</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;相对于父物体缩放比例</span><br><span class="line">            &#x2F;&#x2F;this.transform.localScale</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;物体与模型缩放比例（自身比例 * 父物体缩放比例）</span><br><span class="line">            &#x2F;&#x2F;this.transform.lossyScale</span><br><span class="line">            &#x2F;&#x2F;如：父物体localScale为3 当前物体localScale为2</span><br><span class="line">            &#x2F;&#x2F;lossyScale则为6</span><br><span class="line">        &#125;</span><br><span class="line">        if (GUILayout.Button(&quot;pos &#x2F; trnas&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;向自身坐标系z轴 移动1m</span><br><span class="line">            &#x2F;&#x2F;this.transform.Translate(0, 0, 1);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;世界坐标系z轴移动1m</span><br><span class="line">            &#x2F;&#x2F;this.transform.Translate(0, 0, 1, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        if (GUILayout.Button(&quot;pos &#x2F; Roate&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;世界坐标系y轴旋转10度</span><br><span class="line">            &#x2F;&#x2F;this.transform.Rotate(0, 10, 0, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        if (GUILayout.RepeatButton(&quot;RotateAround&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;绕0点y轴转1度</span><br><span class="line">            this.transform.RotateAround(Vector3.zero, Vector3.up, 1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class GameObjectDemo : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private void OnGUI()</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;在场景中物体激活状态（物体实际激活状态）</span><br><span class="line">        &#x2F;&#x2F;this.gameObject.activeInHierarchy</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;物体自身激活状态（物体在Inspector面板中的状态）</span><br><span class="line">        &#x2F;&#x2F;this.gameObject.activeSelf</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;设置物体启用&#x2F;禁用</span><br><span class="line">        &#x2F;&#x2F;this.gameObject.SetActive()</span><br><span class="line">        if (GUILayout.Button(&quot;添加光源&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;创建物体</span><br><span class="line">            GameObject lightGo &#x3D; new GameObject();</span><br><span class="line">            &#x2F;&#x2F;添加组件</span><br><span class="line">            Light light &#x3D; lightGo.AddComponent&lt;Light&gt;();</span><br><span class="line">            light.color &#x3D; Color.red;</span><br><span class="line">            light.type &#x3D; LightType.Point;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;在场景中根据名称查找物体（不建议使用）</span><br><span class="line">        &#x2F;&#x2F;GameObject.Find(&quot;游戏对象名称&quot;)</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;获取所有使用该标签的物体</span><br><span class="line">        &#x2F;&#x2F;GameObject[] allEm &#x3D; GameObject.FindGameObjectsWithTag(&quot;&quot;); </span><br><span class="line">        &#x2F;&#x2F;获取使用该标签的物体(单个)</span><br><span class="line">        &#x2F;&#x2F;GameObject playerGo &#x3D; GameObject.FindWithTag(&quot;&quot;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Object</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;根据类型查找对象</span><br><span class="line">&#x2F;&#x2F;Object.FindObjectOfType&lt;MeshRenderer&gt;();</span><br><span class="line">&#x2F;&#x2F;FindObjectsOfType&lt;MeshRenderer&gt;();</span><br><span class="line">&#x2F;&#x2F;销毁</span><br><span class="line">&#x2F;&#x2F;Object.Destroy</span><br></pre></td></tr></table></figure>
       
 
       
@@ -189,7 +192,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E5%BF%AB%E4%B9%90%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/02/Unity%E5%9B%9B%E4%B8%AA%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
@@ -219,30 +222,31 @@
 
 
   
-    <article id="post-leetcode——正则表达式匹配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Unity调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">leetcode——正则表达式匹配</a>
+      <a class="article-title" href="/2020/07/02/Unity%E8%B0%83%E8%AF%95/">Unity调试</a>
     </h1>
   
 
         
-        <a href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-04-30T12:52:34.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+        <a href="/2020/07/02/Unity%E8%B0%83%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2020-07-02T11:10:54.575Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持 <code>&#39;.&#39;</code> 和 <code>&#39;*&#39;</code> 的正则表达式匹配。</p>
-        
-          <a class="article-more-a" href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/#more">more >></a>
-        
+        <h2 id="VS调试"><a href="#VS调试" class="headerlink" title="VS调试"></a>VS调试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">private void Start()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;调试过程中输入代码</span><br><span class="line">	&#x2F;&#x2F;右键——快速监视、查看“及时窗口”</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void Update()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;单帧调试：启动调试 运行场景 暂停游戏 加断点 单帧执行 结束调试</span><br><span class="line">    int a &#x3D; 1;</span><br><span class="line">    int b &#x3D; 2;</span><br><span class="line">    int c &#x3D; a + b;</span><br><span class="line">    &#x2F;&#x2F;调试过程中输入代码</span><br><span class="line">	&#x2F;&#x2F;右键——快速监视、查看“及时窗口”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
       
 
       
@@ -254,7 +258,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/30/leetcode%E2%80%94%E2%80%94%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/02/Unity%E8%B0%83%E8%AF%95/">展开全文 >></a>
         </p>
       
 
@@ -284,39 +288,30 @@
 
 
   
-    <article id="post-leetcode——山脉数组中查找目标值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Unity脚本生命周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E7%9B%AE%E6%A0%87%E5%80%BC/">leetcode——山脉数组中查找目标值</a>
+      <a class="article-title" href="/2020/06/30/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">Unity脚本生命周期</a>
     </h1>
   
 
         
-        <a href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E7%9B%AE%E6%A0%87%E5%80%BC/" class="archive-article-date">
-  	<time datetime="2020-04-29T13:28:54.095Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/06/30/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
+  	<time datetime="2020-06-30T05:18:41.720Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个 山脉数组 mountainArr，请你返回能够使得 mountainArr.get(index) 等于 target 最小 的下标 index 值。</p>
-<p>如果不存在这样的下标 index，就请返回 -1。</p>
-<p>何为山脉数组？如果数组 A 是一个山脉数组的话，那它满足如下条件：</p>
-<p>首先，A.length &gt;= 3</p>
-<p>其次，在 0 &lt; i &lt; A.length - 1 条件下，存在 i 使得：</p>
-<p>A[0] &lt; A[1] &lt; … A[i-1] &lt; A[i]<br>A[i] &gt; A[i+1] &gt; … &gt; A[A.length - 1]</p>
-<p>你将 不能直接访问该山脉数组，必须通过 MountainArray 接口来获取数据：</p>
-<p>MountainArray.get(k) - 会返回数组中索引为k 的元素（下标从 0 开始）<br>MountainArray.length() - 会返回该数组的长度</p>
-<p>注意：</p>
-<p>对 MountainArray.get 发起超过 100 次调用的提交将被视为错误答案。此外，任何试图规避判题系统的解决方案都将会导致比赛资格被取消。</p>
-        
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E7%9B%AE%E6%A0%87%E5%80%BC/#more">more >></a>
-        
+        <h1 id="Unity脚本周期"><a href="#Unity脚本周期" class="headerlink" title="Unity脚本周期"></a>Unity脚本周期</h1><p>unity脚本从唤醒到销毁的过程</p>
+<h4 id="消息：当满足某种条件Unity引擎自动调用的函数"><a href="#消息：当满足某种条件Unity引擎自动调用的函数" class="headerlink" title="消息：当满足某种条件Unity引擎自动调用的函数"></a>消息：当满足某种条件Unity引擎自动调用的函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class LifeCircle : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;序列化字段 作用：在编辑器中显示私有变量</span><br><span class="line">    [SerializeField]</span><br><span class="line">    private int a &#x3D; 100;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;在编译器中隐藏字段</span><br><span class="line">    [HideInInspector]</span><br><span class="line">    public float b;</span><br><span class="line">    </span><br><span class="line">    [Range(0,100)]</span><br><span class="line">    public int c;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;属性：在编译器中不能显示，通常脚本中不写</span><br><span class="line">    public int A</span><br><span class="line">    &#123;</span><br><span class="line">        get</span><br><span class="line">        &#123; return this.a;&#125;</span><br><span class="line">        set</span><br><span class="line">        &#123; this.a &#x3D; value; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;不要在脚本中写构造函数,unity5没报错</span><br><span class="line">    &#x2F;*public LifeCircle()</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;Debug.Log(&quot;构造函数&quot;);</span><br><span class="line">        &#x2F;&#x2F;不能在子线程访问主线程成员</span><br><span class="line">        b &#x3D; Time.time;</span><br><span class="line">    &#125;*&#x2F;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;*******************初始阶段*********************</span><br><span class="line">    &#x2F;&#x2F;执行时机： 创建游戏对象--&gt;立即执行1次（早于Start）</span><br><span class="line">    &#x2F;&#x2F;作用：初始化</span><br><span class="line">    &#x2F;&#x2F;常用于游戏开始前进行初始化</span><br><span class="line">    private void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;Debug.Log(&quot;Awake--&quot; + Time.time + &quot;--&quot; + this.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;执行时机： 创建游戏对象--&gt;脚本启用--&gt;才执行1次</span><br><span class="line">    &#x2F;&#x2F;作用：初始化</span><br><span class="line">    &#x2F;&#x2F;常用于数据或游戏逻辑初始化</span><br><span class="line">    private void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(&quot;Start--&quot; + Time.time + &quot;--&quot; + this.name);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;每当脚本对象启用时调用</span><br><span class="line">    private void OnEnable()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;*****************物理阶段**************************</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;固定更新，适用于对游戏对象做物理操作，例如移动，默认0.02s</span><br><span class="line">    &#x2F;&#x2F;不受到渲染影响</span><br><span class="line">    private void FixedUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(Time.time);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;鼠标按下</span><br><span class="line">    private void OnMouseDown()</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(&quot;mousedowjn&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;******************游戏逻辑************************</span><br><span class="line">    &#x2F;&#x2F;执行时机：渲染帧执行，执行间隔不固定</span><br><span class="line">    &#x2F;&#x2F;实用性：处理游戏逻辑</span><br><span class="line">    private void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;延迟更新，在Update函数被调用后执行，适用于跟随逻辑</span><br><span class="line">    private void LateUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -328,7 +323,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E7%9B%AE%E6%A0%87%E5%80%BC/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/06/30/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">展开全文 >></a>
         </p>
       
 
@@ -358,30 +353,30 @@
 
 
   
-    <article id="post-leetcode——将数组分成和相等的三个部分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——出现次数最多的子树元素和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/">leetcode——将数组分成和相等的三个部分</a>
+      <a class="article-title" href="/2020/06/02/leetcode%E2%80%94%E2%80%94%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AD%90%E6%A0%91%E5%85%83%E7%B4%A0%E5%92%8C/">leetcode——出现次数最多的子树元素和</a>
     </h1>
   
 
         
-        <a href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/" class="archive-article-date">
-  	<time datetime="2020-04-29T13:15:06.420Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/06/02/leetcode%E2%80%94%E2%80%94%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AD%90%E6%A0%91%E5%85%83%E7%B4%A0%E5%92%8C/" class="archive-article-date">
+  	<time datetime="2020-06-02T03:10:36.792Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 A，只有可以将其划分为三个和相等的非空部分时才返回 true，否则返回 false。</p>
-<p>形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + … + A[i] == A[i+1] + A[i+2] + … + A[j-1] == A[j] + A[j-1] + … + A[A.length - 1]) 就可以将数组三等分。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个二叉树的根结点，请你找出出现次数最多的子树元素和。一个结点的「子树元素和」定义为以该结点为根的二叉树上所有结点的元素之和（包括结点本身）。</p>
+<p>你需要返回出现次数最多的子树元素和。如果有多个元素出现的次数相同，返回所有出现次数最多的子树元素和（不限顺序）。</p>
         
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/#more">more >></a>
+          <a class="article-more-a" href="/2020/06/02/leetcode%E2%80%94%E2%80%94%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AD%90%E6%A0%91%E5%85%83%E7%B4%A0%E5%92%8C/#more">more >></a>
         
       
 
@@ -394,7 +389,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/06/02/leetcode%E2%80%94%E2%80%94%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AD%90%E6%A0%91%E5%85%83%E7%B4%A0%E5%92%8C/">展开全文 >></a>
         </p>
       
 
@@ -424,33 +419,30 @@
 
 
   
-    <article id="post-leetcode——最佳观光组合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——柱状图中最大的矩形" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E6%9C%80%E4%BD%B3%E8%A7%82%E5%85%89%E7%BB%84%E5%90%88/">leetcode——最佳观光组合</a>
+      <a class="article-title" href="/2020/05/30/leetcode%E2%80%94%E2%80%94%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">leetcode——柱状图中最大的矩形</a>
     </h1>
   
 
         
-        <a href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E6%9C%80%E4%BD%B3%E8%A7%82%E5%85%89%E7%BB%84%E5%90%88/" class="archive-article-date">
-  	<time datetime="2020-04-29T13:04:54.880Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/05/30/leetcode%E2%80%94%E2%80%94%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/" class="archive-article-date">
+  	<time datetime="2020-05-30T00:40:33.779Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定正整数数组 A，A[i] 表示第 i 个观光景点的评分，并且两个景点 i 和 j 之间的距离为 j - i。</p>
-<p>一对景点（i &lt; j）组成的观光组合的得分为（A[i] + A[j] + i - j）：景点的评分之和减去它们两者之间的距离。</p>
-<p>返回一对观光景点能取得的最高分。</p>
-<p>示例：</p>
-<p>输入：[8,1,5,2,6]<br>输出：11<br>解释：i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
+<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
         
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E6%9C%80%E4%BD%B3%E8%A7%82%E5%85%89%E7%BB%84%E5%90%88/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/30/leetcode%E2%80%94%E2%80%94%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/#more">more >></a>
         
       
 
@@ -463,7 +455,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E6%9C%80%E4%BD%B3%E8%A7%82%E5%85%89%E7%BB%84%E5%90%88/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/30/leetcode%E2%80%94%E2%80%94%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">展开全文 >></a>
         </p>
       
 
@@ -493,29 +485,29 @@
 
 
   
-    <article id="post-leetcode——盛最多水的容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——每个元音包含偶数次的最长子字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">leetcode——盛最多水的容器</a>
+      <a class="article-title" href="/2020/05/20/leetcode%E2%80%94%E2%80%94%E6%AF%8F%E4%B8%AA%E5%85%83%E9%9F%B3%E5%8C%85%E5%90%AB%E5%81%B6%E6%95%B0%E6%AC%A1%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">leetcode——每个元音包含偶数次的最长子字符串</a>
     </h1>
   
 
         
-        <a href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-04-29T12:59:47.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/05/20/leetcode%E2%80%94%E2%80%94%E6%AF%8F%E4%B8%AA%E5%85%83%E9%9F%B3%E5%8C%85%E5%90%AB%E5%81%B6%E6%95%B0%E6%AC%A1%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
+  	<time datetime="2020-05-20T13:55:55.555Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串 <code>s</code> ，请你返回满足以下条件的最长子字符串的长度：每个元音字母，即 ‘a’，’e’，’i’，’o’，’u’ ，在子字符串中都恰好出现了偶数次。</p>
         
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/20/leetcode%E2%80%94%E2%80%94%E6%AF%8F%E4%B8%AA%E5%85%83%E9%9F%B3%E5%8C%85%E5%90%AB%E5%81%B6%E6%95%B0%E6%AC%A1%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/#more">more >></a>
         
       
 
@@ -528,7 +520,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/20/leetcode%E2%80%94%E2%80%94%E6%AF%8F%E4%B8%AA%E5%85%83%E9%9F%B3%E5%8C%85%E5%90%AB%E5%81%B6%E6%95%B0%E6%AC%A1%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
         </p>
       
 
@@ -558,31 +550,29 @@
 
 
   
-    <article id="post-leetcode——统计全为1的正方形矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——乘积最大子数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA1%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%9F%A9%E9%98%B5/">leetcode——统计全为1的正方形矩阵</a>
+      <a class="article-title" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">leetcode——乘积最大子数组</a>
     </h1>
   
 
         
-        <a href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA1%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%9F%A9%E9%98%B5/" class="archive-article-date">
-  	<time datetime="2020-04-29T12:42:11.350Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/" class="archive-article-date">
+  	<time datetime="2020-05-18T14:13:05.397Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个 <code>m * n</code> 的矩阵，矩阵中的元素不是 <code>0</code> 就是 <code>1</code>，请你统计并返回其中完全由 <code>1</code> 组成的 <strong>正方形</strong> 子矩阵的个数。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix &#x3D;</span><br><span class="line">[</span><br><span class="line">  [0,1,1,1],</span><br><span class="line">  [1,1,1,1],</span><br><span class="line">  [0,1,1,1]</span><br><span class="line">]</span><br><span class="line">输出：15</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 <code>nums</code> ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
         
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA1%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%9F%A9%E9%98%B5/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/#more">more >></a>
         
       
 
@@ -595,7 +585,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA1%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%9F%A9%E9%98%B5/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">展开全文 >></a>
         </p>
       
 
@@ -625,31 +615,29 @@
 
 
   
-    <article id="post-leetcode——连续的子数组和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——最长有效括号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/">leetcode——连续的子数组和</a>
+      <a class="article-title" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">leetcode——最长有效括号</a>
     </h1>
   
 
         
-        <a href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/" class="archive-article-date">
-  	<time datetime="2020-04-29T12:25:03.768Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" class="archive-article-date">
+  	<time datetime="2020-05-18T14:02:20.551Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个包含非负数的数组和一个目标整数 k，编写一个函数来判断该数组是否含有连续的子数组，其大小至少为 2，总和为 k 的倍数，即总和为 n*k，其中 n 也是一个整数。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [23,2,4,6,7], k &#x3D; 6</span><br><span class="line">输出: True</span><br><span class="line">解释: [2,4] 是一个大小为 2 的子数组，并且和为 6。</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包含 <code>&#39;(&#39;</code> 和 <code>&#39;)&#39;</code> 的字符串，找出最长的包含有效括号的子串的长度。</p>
         
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/#more">more >></a>
         
       
 
@@ -662,7 +650,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/leetcode%E2%80%94%E2%80%94%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">展开全文 >></a>
         </p>
       
 
@@ -692,30 +680,32 @@
 
 
   
-    <article id="post-leetcode——总持续时间可被60整除的歌曲" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——通配符匹配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E6%80%BB%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%E5%8F%AF%E8%A2%AB60%E6%95%B4%E9%99%A4%E7%9A%84%E6%AD%8C%E6%9B%B2/">leetcode——总持续时间可被60整除的歌曲</a>
+      <a class="article-title" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/">leetcode——通配符匹配</a>
     </h1>
   
 
         
-        <a href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E6%80%BB%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%E5%8F%AF%E8%A2%AB60%E6%95%B4%E9%99%A4%E7%9A%84%E6%AD%8C%E6%9B%B2/" class="archive-article-date">
-  	<time datetime="2020-04-28T12:45:40.262Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+        <a href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/" class="archive-article-date">
+  	<time datetime="2020-05-18T13:50:50.495Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在歌曲列表中，第 i 首歌曲的持续时间为 time[i] 秒。</p>
-<p>返回其总持续时间（以秒为单位）可被 60 整除的歌曲对的数量。形式上，我们希望索引的数字 i 和 j 满足  i &lt; j 且有 (time[i] + time[j]) % 60 == 0。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 ‘?’ 和 ‘*’ 的通配符匹配。</p>
+<p>‘?’ 可以匹配任何单个字符。<br>‘*’ 可以匹配任意字符串（包括空字符串）。<br>两个字符串完全匹配才算匹配成功。</p>
+<p>说明:</p>
+<p>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 ? 和 *。</p>
         
-          <a class="article-more-a" href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E6%80%BB%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%E5%8F%AF%E8%A2%AB60%E6%95%B4%E9%99%A4%E7%9A%84%E6%AD%8C%E6%9B%B2/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/#more">more >></a>
         
       
 
@@ -728,7 +718,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E6%80%BB%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%E5%8F%AF%E8%A2%AB60%E6%95%B4%E9%99%A4%E7%9A%84%E6%AD%8C%E6%9B%B2/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/18/leetcode%E2%80%94%E2%80%94%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/">展开全文 >></a>
         </p>
       
 
@@ -758,31 +748,29 @@
 
 
   
-    <article id="post-leetcode——寻找两个有序数组的中位数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据结构——查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">leetcode——寻找两个有序数组的中位数</a>
+      <a class="article-title" href="/2020/05/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E6%9F%A5%E6%89%BE/">数据结构——查找</a>
     </h1>
   
 
         
-        <a href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-04-28T11:50:53.582Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+        <a href="/2020/05/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E6%9F%A5%E6%89%BE/" class="archive-article-date">
+  	<time datetime="2020-05-17T14:18:36.380Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。</p>
-<p>请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。</p>
-        
-          <a class="article-more-a" href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/#more">more >></a>
-        
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//顺序查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search_Seq</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = v.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">		<span class="keyword">if</span> (v[i] == key)</span><br><span class="line">			<span class="keyword">return</span> i;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置监视哨</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search_Seq2</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	v[<span class="number">0</span>] = key;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = v.<span class="built_in">size</span>() - <span class="number">1</span>; v[i] != key; --i);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//折半查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search_Bin</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = v.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (v[mid] == key)</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (v[mid] &gt; key)</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//分块查找</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//-------------二叉排序树------------------</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	TreeNode* left;</span><br><span class="line">	TreeNode* right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//搜索二插搜索树</span></span><br><span class="line"><span class="function">TreeNode* <span class="title">SearchBST</span><span class="params">(TreeNode* root, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="literal">nullptr</span> || key == root-&gt;val)</span><br><span class="line">		<span class="keyword">return</span> root;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; root-&gt;val)</span><br><span class="line">		<span class="keyword">return</span> SearchBST(root-&gt;right, key);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> SearchBST(root-&gt;left, key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二叉搜索树的插入</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertBST</span><span class="params">(TreeNode* &amp;root, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="literal">nullptr</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		TreeNode* pNode = <span class="keyword">new</span> TreeNode();</span><br><span class="line">		pNode-&gt;val = key;</span><br><span class="line">		pNode-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">		pNode-&gt;right = <span class="literal">nullptr</span>;</span><br><span class="line">		root = pNode;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; root-&gt;val)</span><br><span class="line">		InsertBST(root-&gt;left, key);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; root-&gt;val)</span><br><span class="line">		InsertBST(root-&gt;right, key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二插搜索树创建</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateBST</span><span class="params">(TreeNode *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	root = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">	<span class="keyword">while</span> (num != <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		InsertBST(root, num);</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二插搜索树的删除</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeleteBST</span><span class="params">(TreeNode* root, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	TreeNode* pNode = root;</span><br><span class="line">	TreeNode* fNode = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (pNode == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">//找到删除节点</span></span><br><span class="line">	<span class="keyword">while</span> (pNode != <span class="literal">nullptr</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (pNode-&gt;val == k)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		fNode = pNode;</span><br><span class="line">		<span class="keyword">if</span> (pNode-&gt;val &gt; k)</span><br><span class="line">			pNode = pNode-&gt;left;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			pNode = pNode-&gt;right;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//未找到</span></span><br><span class="line">	<span class="keyword">if</span> (pNode == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	TreeNode* qNode = pNode; <span class="comment">//用来连rNode的左子树</span></span><br><span class="line">	<span class="comment">//左右节点均不为空</span></span><br><span class="line">	<span class="keyword">if</span> (pNode-&gt;left &amp;&amp; pNode-&gt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//在左子树上最右节点</span></span><br><span class="line">		TreeNode* rNode = pNode-&gt;left;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (rNode-&gt;right)</span><br><span class="line">		&#123;</span><br><span class="line">			qNode = rNode;</span><br><span class="line">			rNode = rNode-&gt;right;</span><br><span class="line">		&#125;</span><br><span class="line">		pNode-&gt;val = rNode-&gt;val;</span><br><span class="line">		<span class="keyword">if</span> (qNode != pNode)</span><br><span class="line">			qNode-&gt;right = rNode-&gt;left;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			qNode-&gt;left = rNode-&gt;left;</span><br><span class="line">		<span class="keyword">delete</span> rNode;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> ( !pNode-&gt;left)</span><br><span class="line">	&#123;</span><br><span class="line">		pNode = pNode -&gt; right;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> ( !pNode-&gt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		pNode = pNode-&gt;left;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (fNode == <span class="literal">nullptr</span>) <span class="comment">//删掉的节点为根节点</span></span><br><span class="line">		root = fNode;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (fNode-&gt;left == qNode)</span><br><span class="line">		fNode-&gt;left = pNode;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		fNode-&gt;right = pNode;</span><br><span class="line">	<span class="keyword">delete</span> qNode;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ----------B-树</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> keyNum;</span><br><span class="line">	BTNode* parent;</span><br><span class="line">	<span class="keyword">int</span> K[<span class="number">4</span>];</span><br><span class="line">	BTNode* ptr[<span class="number">4</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">result</span> &#123;</span></span><br><span class="line">	BTNode *pt; <span class="comment">//指向找到的节点</span></span><br><span class="line">	<span class="keyword">int</span> i;   <span class="comment">//节点中的关键字序号</span></span><br><span class="line">	<span class="keyword">int</span> tag;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">int main()</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">	vector&lt;int&gt; v = &#123; 1, 2, 3, 4, 5, 6 &#125;;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	TreeNode* root = new TreeNode();</span></span><br><span class="line"><span class="comment">	InsertBST(root, 1);</span></span><br><span class="line"><span class="comment">	InsertBST(root, 2);</span></span><br><span class="line"><span class="comment">	InsertBST(root, 3);</span></span><br><span class="line"><span class="comment">	InsertBST(root, 4);</span></span><br><span class="line"><span class="comment">	InsertBST(root, 5);</span></span><br><span class="line"><span class="comment">	InsertBST(root, 6);</span></span><br><span class="line"><span class="comment">	DeleteBST(root, 5);</span></span><br><span class="line"><span class="comment">	getchar();</span></span><br><span class="line"><span class="comment">	return 0;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -794,7 +782,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/28/leetcode%E2%80%94%E2%80%94%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E6%9F%A5%E6%89%BE/">展开全文 >></a>
         </p>
       
 
@@ -826,7 +814,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1074,5 +1062,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/miku.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":true},"log":false});</script></body>
 </html>

@@ -83,7 +83,7 @@
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/happy8046/posts" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -124,7 +124,7 @@
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/happy8046/posts" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -152,33 +152,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode——不同字符的最小子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——24点游戏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E5%BA%8F%E5%88%97/">leetcode——不同字符的最小子序列</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%9424%E7%82%B9%E6%B8%B8%E6%88%8F/">leetcode——24点游戏</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-09-05T12:38:56.679Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%9424%E7%82%B9%E6%B8%B8%E6%88%8F/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:19.140Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>返回字符串 <code>text</code> 中按字典序排列最小的子序列，该子序列包含 <code>text</code> 中所有不同字符一次。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用一个栈来保存字符，栈可以直接通过vector实现</p>
-<p>1.如果text[i]小于栈顶元素且后面还存在栈顶元素，则出栈</p>
-<p>2.如果text[i]大于栈顶元素则直接压栈</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">haveAgain</span><span class="params">(<span class="keyword">char</span> c, <span class="keyword">int</span> i, <span class="built_in">string</span> <span class="built_in">text</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; <span class="built_in">text</span>.<span class="built_in">size</span>(); ++j)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">text</span>[j] == c)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">smallestSubsequence</span><span class="params">(<span class="built_in">string</span> <span class="built_in">text</span>)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">text</span>.<span class="built_in">size</span>() &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">text</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; v;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">text</span>.<span class="built_in">size</span>(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">find</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), <span class="built_in">text</span>[i]) != v.<span class="built_in">end</span>())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span>( !v.empty() &amp;&amp; <span class="built_in">text</span>[i] &lt; v.back() &amp;&amp; haveAgain(v.back(), i, <span class="built_in">text</span>))</span><br><span class="line">                v.pop_back();</span><br><span class="line">            v.push_back(<span class="built_in">text</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : v)</span><br><span class="line">            s.push_back(c);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 <code>*</code>，<code>/</code>，<code>+</code>，<code>-</code>，<code>(</code>，<code>)</code> 的运算得到 24。</p>
+        
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%9424%E7%82%B9%E6%B8%B8%E6%88%8F/#more">more >></a>
+        
       
 
       
@@ -190,7 +187,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8D%E5%90%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E5%BA%8F%E5%88%97/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%9424%E7%82%B9%E6%B8%B8%E6%88%8F/">展开全文 >></a>
         </p>
       
 
@@ -220,30 +217,30 @@
 
 
   
-    <article id="post-leetcode——下一个更大元素I" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——N皇后" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0I/">leetcode——下一个更大元素I</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94N%E7%9A%87%E5%90%8E/">leetcode——N皇后</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0I/" class="archive-article-date">
-  	<time datetime="2020-09-05T12:27:33.152Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94N%E7%9A%87%E5%90%8E/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:19.005Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个 <strong>没有重复元素</strong> 的数组 <code>nums1</code> 和 <code>nums2</code> ，其中<code>nums1</code> 是 <code>nums2</code> 的子集。找到 <code>nums1</code> 中每个元素在 <code>nums2</code> 中的下一个比其大的值。</p>
-<p><code>nums1</code> 中数字 <strong>x</strong> 的下一个更大元素是指 <strong>x</strong> 在 <code>nums2</code> 中对应位置的右边的第一个比 <strong>x</strong> 大的元素。如果不存在，对应位置输出 -1 。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><em>n</em> 皇后问题研究的是如何将 <em>n</em> 个皇后放置在 <em>n</em>×<em>n</em> 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
+<p>皇后彼此不能相互攻击，也就是说：任何两个皇后都不能处于同一条横行、纵行或斜线上。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0I/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94N%E7%9A%87%E5%90%8E/#more">more >></a>
         
       
 
@@ -256,7 +253,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0I/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94N%E7%9A%87%E5%90%8E/">展开全文 >></a>
         </p>
       
 
@@ -286,29 +283,29 @@
 
 
   
-    <article id="post-leetcode——二叉树的所有路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——按要求补齐数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/">leetcode——二叉树的所有路径</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%8C%89%E8%A6%81%E6%B1%82%E8%A1%A5%E9%BD%90%E6%95%B0%E7%BB%84/">leetcode——按要求补齐数组</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/" class="archive-article-date">
-  	<time datetime="2020-09-05T12:04:34.605Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%8C%89%E8%A6%81%E6%B1%82%E8%A1%A5%E9%BD%90%E6%95%B0%E7%BB%84/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:18.834Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树，返回所有从根节点到叶子节点的路径。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个已排序的正整数数组 nums，和一个正整数 n 。从 [1, n] 区间内选取任意个数字补充到 nums 中，使得 [1, n] 区间内的任何数字都可以用 nums 中某几个数字的和来表示。请输出满足上述要求的最少需要补充的数字个数。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%8C%89%E8%A6%81%E6%B1%82%E8%A1%A5%E9%BD%90%E6%95%B0%E7%BB%84/#more">more >></a>
         
       
 
@@ -321,7 +318,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%8C%89%E8%A6%81%E6%B1%82%E8%A1%A5%E9%BD%90%E6%95%B0%E7%BB%84/">展开全文 >></a>
         </p>
       
 
@@ -351,29 +348,31 @@
 
 
   
-    <article id="post-leetcode——合并区间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——摆动序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">leetcode——合并区间</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/">leetcode——摆动序列</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" class="archive-article-date">
-  	<time datetime="2020-09-05T11:51:24.369Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:18.338Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给出一个区间的集合，请合并所有重叠的区间。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列。第一个差（如果存在的话）可能是正数或负数。少于两个元素的序列也是摆动序列。</p>
+<p>例如， [1,7,4,9,2,5] 是一个摆动序列，因为差值 (6,-3,5,-7,3) 是正负交替出现的。相反, [1,4,7,2,5] 和 [1,7,4,5,5] 不是摆动序列，第一个序列是因为它的前两个差值都是正数，第二个序列是因为它的最后一个差值为零。</p>
+<p>给定一个整数序列，返回作为摆动序列的最长子序列的长度。 通过从原始序列中删除一些（也可以不删除）元素来获得子序列，剩下的元素保持其原始顺序。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/#more">more >></a>
         
       
 
@@ -386,7 +385,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/">展开全文 >></a>
         </p>
       
 
@@ -416,29 +415,29 @@
 
 
   
-    <article id="post-leetcode——对链表进行插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——比特位计数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">leetcode——对链表进行插入排序</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/">leetcode——比特位计数</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-09-05T11:43:55.867Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:18.152Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>对链表进行插入排序。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个非负整数 <strong>num</strong>。对于 <strong>0 ≤ i ≤ num</strong> 范围中的每个数字 <strong>i</strong> ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/#more">more >></a>
         
       
 
@@ -451,7 +450,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/">展开全文 >></a>
         </p>
       
 
@@ -481,30 +480,29 @@
 
 
   
-    <article id="post-leetcode——最大间距" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——长度最小的子数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E9%97%B4%E8%B7%9D/">leetcode——最大间距</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/">leetcode——长度最小的子数组</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E9%97%B4%E8%B7%9D/" class="archive-article-date">
-  	<time datetime="2020-09-05T11:20:41.446Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:17.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个无序的数组，找出数组在排序之后，相邻元素之间最大的差值。</p>
-<p>如果数组元素个数小于 2，则返回 0。。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E9%97%B4%E8%B7%9D/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/#more">more >></a>
         
       
 
@@ -517,7 +515,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E9%97%B4%E8%B7%9D/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/">展开全文 >></a>
         </p>
       
 
@@ -547,29 +545,30 @@
 
 
   
-    <article id="post-leetcode——排序列表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——乘法表中第k小的数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8/">leetcode——排序列表</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/">leetcode——乘法表中第k小的数</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-09-05T11:11:16.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:17.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在 <em>O</em>(<em>n</em> log <em>n</em>) 时间复杂度和常数级空间复杂度下，对链表进行排序。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>几乎每一个人都用 乘法表。但是你能在乘法表中快速找到第k小的数字吗？</p>
+<p>给定高度m 、宽度n 的一张 m * n的乘法表，以及正整数k，你需要返回表中第k 小的数字。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/#more">more >></a>
         
       
 
@@ -582,7 +581,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%8E%92%E5%BA%8F%E5%88%97%E8%A1%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/">展开全文 >></a>
         </p>
       
 
@@ -612,29 +611,31 @@
 
 
   
-    <article id="post-leetcode——最大数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——岛屿数量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%95%B0/">leetcode——最大数</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">leetcode——岛屿数量</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-05T11:08:32.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:16.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
+<p>此外，你可以假设该网格的四条边均被水包围。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%95%B0/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/#more">more >></a>
         
       
 
@@ -647,7 +648,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">展开全文 >></a>
         </p>
       
 
@@ -677,31 +678,30 @@
 
 
   
-    <article id="post-leetcode——H指数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——递增子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94H%E6%8C%87%E6%95%B0/">leetcode——H指数</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">leetcode——递增子序列</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94H%E6%8C%87%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-05T06:57:27.393Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:16.573Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一位研究者论文被引用次数的数组（被引用次数是非负整数）。编写一个方法，计算出研究者的 h 指数。</p>
-<p>h 指数的定义：h 代表“高引用次数”（high citations），一名科研人员的 h 指数是指他（她）的 （N 篇论文中）总共有 h 篇论文分别被引用了至少 h 次。（其余的 N - h 篇论文每篇被引用次数 不超过 h 次。）</p>
-<p>例如：某人的 h 指数是 20，这表示他已发表的论文中，每篇被引用了至少 20 次的论文总共有 20 篇。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。</p>
+<p>输入: [4, 6, 7, 7]<br>输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94H%E6%8C%87%E6%95%B0/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/#more">more >></a>
         
       
 
@@ -714,7 +714,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94H%E6%8C%87%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">展开全文 >></a>
         </p>
       
 
@@ -744,29 +744,29 @@
 
 
   
-    <article id="post-leetcode——计算右侧小于当前元素的个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode——二叉树的锯齿形层次遍历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E5%8F%B3%E4%BE%A7%E5%B0%8F%E4%BA%8E%E5%BD%93%E5%89%8D%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AA%E6%95%B0/">leetcode——计算右侧小于当前元素的个数</a>
+      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">leetcode——二叉树的锯齿形层次遍历</a>
     </h1>
   
 
         
-        <a href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E5%8F%B3%E4%BE%A7%E5%B0%8F%E4%BA%8E%E5%BD%93%E5%89%8D%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-05T05:54:04.983Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2020-09-11T01:55:16.273Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整数数组 nums，按要求返回一个新数组 counts。数组 counts 有该性质： counts[i] 的值是  nums[i] 右侧小于 nums[i] 的元素的数量。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树，返回其节点值的锯齿形层次遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。</p>
         
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E5%8F%B3%E4%BE%A7%E5%B0%8F%E4%BA%8E%E5%BD%93%E5%89%8D%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AA%E6%95%B0/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/#more">more >></a>
         
       
 
@@ -779,7 +779,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/leetcode%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E5%8F%B3%E4%BE%A7%E5%B0%8F%E4%BA%8E%E5%BD%93%E5%89%8D%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AA%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">展开全文 >></a>
         </p>
       
 
@@ -811,7 +811,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1059,5 +1059,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/miku.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":true},"log":false});</script></body>
 </html>

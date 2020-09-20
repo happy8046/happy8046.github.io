@@ -77,7 +77,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/happy8046/happy8046.github.io" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -118,7 +118,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/happy8046/happy8046.github.io" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -151,6 +151,773 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/20/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2020-09-20T07:02:03.566Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建新的tar</span></span><br><span class="line">tar cvf archive_name.tar</span><br><span class="line"><span class="comment">// 解压</span></span><br><span class="line">tar xvf archive_name.tar</span><br><span class="line"><span class="comment">// 查看</span></span><br><span class="line">tar tvf archive_name.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在文件中查找字符串（不区分大小写）</span></span><br><span class="line">grep -i <span class="string">"the"</span> demo_file</span><br><span class="line"><span class="comment">// 输出成功匹配的行，以及后面三行</span></span><br><span class="line">grep -A <span class="number">3</span> -i <span class="string">"example"</span> demo_file</span><br><span class="line"><span class="comment">// 递归查询包含指定字符串的文件</span></span><br><span class="line">grep -r <span class="string">"ramesh"</span> *</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查找指定文件名的文件（不区分大小）</span></span><br><span class="line"><span class="built_in">find</span> -iname <span class="string">"hello.cpp"</span></span><br><span class="line"><span class="comment">// 找到对应文件夹并执行命令</span></span><br><span class="line"><span class="built_in">find</span> -iname <span class="string">"hello.cpp"</span> -exec md5sum &#123;&#125; \;</span><br><span class="line"><span class="comment">// 查找home目录下的所有空文件夹</span></span><br><span class="line"><span class="built_in">find</span> ~-empty</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>登录到远程主机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -l jsmith www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>调试ssh客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v -l jsmith www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>显示ssh客户端版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><p>删除重复行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#39;!&#123;$0 in array&#125; &#123;array[$0]; print&#125;&#39; temp</span><br></pre></td></tr></table></figure>
+
+<p>打印/etc/passwd中所有包含同样的uid和gid的行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F &#39;:&#39; &#39;$3&#x3D;$4&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+
+<p>打印文件中的指定部分的字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#39;&#123;print $2,$5;&#125;&#39; employee.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><p>打开文件并跳到第10行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim +10 hello.cpp</span><br></pre></td></tr></table></figure>
+
+<p>打开文件跳到第一个匹配的行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim +&#x2F;xxxx hello.cpp</span><br></pre></td></tr></table></figure>
+
+<p>以只读模式打开文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -r &#x2F;etc&#x2F;pass</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="dif"><a href="#dif" class="headerlink" title="dif"></a>dif</h2><p>比较的时候忽略空白符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff -w text1.txt text2.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>以升序对文件内容排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort demo.tx</span><br></pre></td></tr></table></figure>
+
+<p>以降序对文件内容排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -r demo.txt</span><br></pre></td></tr></table></figure>
+
+<p>以第三个字段对/etc/passwd的内容排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -t: -k 3n &#x2F;etc&#x2F;passwd | more</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>以易读的方式显示文件大小(显示为MB,GB…)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh</span><br></pre></td></tr></table></figure>
+
+<p>以最后修改时间升序列出文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ltr</span><br></pre></td></tr></table></figure>
+
+<p>在文件名后面显示文件类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -F</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><p>输出当前工作目录</p>
+<h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h2><p>创建一个*.gz的压缩文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip *.gz</span><br></pre></td></tr></table></figure>
+
+<p>解压*.gz文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -d *.gz</span><br></pre></td></tr></table></figure>
+
+<p>显示压缩的比率</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -l *.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h2><p>关闭系统并立即关机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h now</span><br></pre></td></tr></table></figure>
+
+<p>10分钟后关机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h +10</span><br></pre></td></tr></table></figure>
+
+<p>重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure>
+
+<p>重启期间强制进行系统检查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdow -Fr now</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>service命令用于运行System V init脚本，这些脚本一般位于/etc/init.d文件下，这个命令可以直接运行这个文件夹里面的脚本，而不用加上路径</p>
+<p>查看服务状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh status</span><br></pre></td></tr></table></figure>
+
+<p>查看所有服务状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service --status-all</span><br></pre></td></tr></table></figure>
+
+<p>重启服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh restart</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><p>查看当前正在运行的所有进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | more</span><br></pre></td></tr></table></figure>
+
+<p>以树状结构显示当前正在运行的进程，H选项表示显示进程的层次结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -efH | more</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><p>这个命令用于显示系统当前内存的使用情况，包括已用内存、可用内存和交换内存的情况</p>
+<p>默认情况下free会以字节为单位输出内存的使用量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ free</span><br><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:       3566408    1580220    1986188          0     203988     902960</span><br><span class="line">-&#x2F;+ buffers&#x2F;cache:     473272    3093136</span><br><span class="line">Swap:      4000176          0    4000176</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="TOP"><a href="#TOP" class="headerlink" title="TOP"></a>TOP</h2><p>top命令会显示当前系统中占用资源最多的一些进程（默认以CPU占用率排序）如果你想改变排序方式，可以在结果列表中点击O（大写字母O）会显示所有可用于排序的列，这个时候你就可以选择你想排序的列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Current Sort Field:  P  for window 1:Def</span><br><span class="line">Select sort field via field letter, type any other key to return</span><br><span class="line"></span><br><span class="line">  a: PID        &#x3D; Process Id              v: nDRT       &#x3D; Dirty Pages count</span><br><span class="line">  d: UID        &#x3D; User Id                 y: WCHAN      &#x3D; Sleeping in Function</span><br><span class="line">  e: USER       &#x3D; User Name               z: Flags      &#x3D; Task Flags</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><p>显示文件系统的磁盘使用情况，默认情况下<code>df -k</code>将以字节为单位输出磁盘的使用量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ df -k</span><br><span class="line">Filesystem           1K-blocks      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;sda1             29530400   3233104  24797232  12% &#x2F;</span><br><span class="line">&#x2F;dev&#x2F;sda2            120367992  50171596  64082060  44% &#x2F;home</span><br></pre></td></tr></table></figure>
+
+<p>使用-h选项可以以更符合阅读习惯的方式显示磁盘使用量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ df -h</span><br><span class="line">Filesystem                  Size   Used  Avail Capacity  iused      ifree %iused  Mounted on</span><br><span class="line">&#x2F;dev&#x2F;disk0s2               232Gi   84Gi  148Gi    37% 21998562   38864868   36%   &#x2F;</span><br><span class="line">devfs                      187Ki  187Ki    0Bi   100%      648          0  100%   &#x2F;dev</span><br><span class="line">map -hosts                   0Bi    0Bi    0Bi   100%        0          0  100%   &#x2F;net</span><br><span class="line">map auto_home                0Bi    0Bi    0Bi   100%        0          0  100%   &#x2F;home</span><br><span class="line">&#x2F;dev&#x2F;disk0s4               466Gi   45Gi  421Gi    10%   112774  440997174    0%   &#x2F;Volumes&#x2F;BOOTCAMP</span><br><span class="line">&#x2F;&#x2F;app@izenesoft.cn&#x2F;public  2.7Ti  1.3Ti  1.4Ti    48%        0 18446744073709551615    0%   &#x2F;Volumes&#x2F;public</span><br></pre></td></tr></table></figure>
+
+<p>使用-T选项显示文件系统类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ df -T</span><br><span class="line">Filesystem    Type   1K-blocks      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;sda1     ext4    29530400   3233120  24797216  12% &#x2F;</span><br><span class="line">&#x2F;dev&#x2F;sda2     ext4   120367992  50171596  64082060  44% &#x2F;home</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>kill用于终止一个进程。一般我们会先用<code>ps -ef</code>查找某个进程得到它的进程号，然后再使用<code>kill -9 进程号</code>终止该进程。你还可以使用killall、pkill、xkill来终止进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep vim</span><br><span class="line">ramesh    7243  7222  9 22:43 pts&#x2F;2    00:00:00 vim</span><br><span class="line"></span><br><span class="line">$ kill -9 7243</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><p>删除文件前先确认</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -i filename.txt</span><br></pre></td></tr></table></figure>
+
+<p>在文件名中使用shell的元字符会非常有用。删除文件前先打印文件名并进行确认</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -i file*</span><br></pre></td></tr></table></figure>
+
+<p>递归删除文件夹下所有文件，并删除该文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -r example</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>拷贝文件1到文件2，并保持文件的权限、属主和时间戳</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp -p file1 file2</span><br></pre></td></tr></table></figure>
+
+<p>拷贝file1到file2，如果file2存在会提示是否覆盖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp -i file1 file2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p>将文件名file1重命名为file2，如果file2存在则提示是否覆盖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv -i file1 file2</span><br></pre></td></tr></table></figure>
+
+<p>注意如果使用-f选项则不会进行提示</p>
+<p>-v会输出重命名的过程，当文件名中包含通配符时，这个选项会非常方便</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv -v file1 file2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat file1 file2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h2><p>如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># mkdir &#x2F;u01</span><br><span class="line"></span><br><span class="line"># mount &#x2F;dev&#x2F;sdb1 &#x2F;u01</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h3><p>chmod用于改变文件和目录的权限</p>
+<p>给指定文件的属主和属组所有权限(包括读、写、执行)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod xxx file.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p>在home目录下创建一个名为temp的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~&#x2F;temp</span><br></pre></td></tr></table></figure>
+
+<p>使用-p选项可以创建一个路径上所有不存在的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p dir1&#x2F;dir2&#x2F;dir3&#x2F;dir4&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h2><p>uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uname -a</span><br><span class="line">Linux john-laptop 2.6.32-24-generic #41-Ubuntu SMP Thu Aug 19 01:12:52 UTC 2010 i686 GNU&#x2F;Linux</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>tail命令默认显示文件最后的10行文本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail filename.txt</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/20/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C++多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/C++%E5%A4%9A%E7%BA%BF%E7%A8%8B/">C++多线程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/20/C++%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-09-20T06:39:40.879Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h2 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>get_id</td>
+<td>获取线程ID，返回一个类型为std::thread::id的对象。</td>
+</tr>
+<tr>
+<td>joinable</td>
+<td>检查线程是否可被join。</td>
+</tr>
+<tr>
+<td>join</td>
+<td>调用该函数会阻塞当前线程。阻塞调用者(caller)所在的线程直至被join的std::thread对象标识的线程执行结束。</td>
+</tr>
+<tr>
+<td>detach</td>
+<td>将当前线程对象所代表的执行实例与该线程对象分离，使得线程的执行可以单独进行。一旦线程执行完毕，它所分配的资源将会被释放。</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>交换两个线程对象所代表的底层句柄。</td>
+</tr>
+<tr>
+<td>native_handle</td>
+<td>返回与std::thread具体实现相关的线程句柄。</td>
+</tr>
+<tr>
+<td>operator=</td>
+<td>moves the thread object</td>
+</tr>
+<tr>
+<td>hardware_concurrency</td>
+<td>静态成员函数，返回当前计算机最大的硬件并发线程数目。</td>
+</tr>
+</tbody></table>
+<h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		Sleep(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		Sleep(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">thread <span class="title">th1</span><span class="params">(t1)</span></span>; </span><br><span class="line">    <span class="function">thread <span class="title">th2</span><span class="params">(t2)</span></span>;</span><br><span class="line"> </span><br><span class="line">    th1.join(); <span class="comment">// 必须将线程join或者detach 等待子线程结束主进程才可以退出</span></span><br><span class="line">    th2.join();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"main thread"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line">main thread   </span><br><span class="line"><span class="comment">// 删去join</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line">main thread</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="mutex"><a href="#mutex" class="headerlink" title="mutex"></a>mutex</h2><p>用来保证线程同步，防止不同的线程同时操作同一个共享数据。</p>
+<p>lock_guard相对安全，基于作用域，能自动解锁</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">std</span>::mutex m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (cnt &gt; <span class="number">10</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lockGuard</span><span class="params">(m)</span></span>;</span><br><span class="line">		<span class="comment">// std::m.lock();</span></span><br><span class="line">		<span class="keyword">if</span> (cnt &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//sleep(1);</span></span><br><span class="line">			--cnt;</span><br><span class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// std::m.unlock();</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (cnt &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lockGuard</span><span class="params">(m)</span></span>;</span><br><span class="line">		<span class="comment">// std::m.lock();</span></span><br><span class="line">		<span class="keyword">if</span> (cnt &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			--cnt;</span><br><span class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// std::m.unlock();</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function"><span class="built_in">std</span>::thread <span class="title">th1</span><span class="params">(t1)</span></span>;</span><br><span class="line">	<span class="function"><span class="built_in">std</span>::thread <span class="title">th2</span><span class="params">(t2)</span></span>;</span><br><span class="line"></span><br><span class="line">	th1.join();    <span class="comment">//等待t1退出</span></span><br><span class="line">	th2.join();    <span class="comment">//等待t2退出</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"here is the main()"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line"><span class="number">19</span></span><br><span class="line"><span class="number">18</span></span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="comment">//删除锁</span></span><br><span class="line"><span class="number">1918</span></span><br><span class="line"></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="function">here is the <span class="title">main</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/20/C++%E5%A4%9A%E7%BA%BF%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C++类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/C++%E7%B1%BB/">C++类</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/20/C++%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-09-20T03:44:22.358Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>类的基本思想是数据抽象和封装</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sales_data</span> &#123;</span></span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">isbn</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bookNo; &#125;</span><br><span class="line">	<span class="function">Sales_data&amp; <span class="title">combine</span><span class="params">(<span class="keyword">const</span> Sales_data&amp;)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">avg_price</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="built_in">string</span> bookNo;</span><br><span class="line">	<span class="keyword">unsigned</span> units_sold = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> revenue = <span class="number">0.0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Sales_data <span class="title">add</span><span class="params">(<span class="keyword">const</span> Sales_data&amp;, <span class="keyword">const</span> Sales_data&amp;)</span></span>;</span><br><span class="line"><span class="function">ostream &amp;<span class="title">print</span><span class="params">(ostream&amp;, <span class="keyword">const</span> Sales_data&amp;)</span></span>;</span><br><span class="line"><span class="function">istream &amp;<span class="title">read</span><span class="params">(istream&amp;, Sales_data&amp;)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>定义在类内部的函数是隐式的inline函数。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>this是一个常量指针，不允许修改this中保存的地址。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total.isbn();</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">Sales_data::isbn(&amp;total);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">Sales_data::isbn</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bookNo; &#125;</span><br><span class="line"><span class="comment">//可以想象成，但下面的代码是非法的</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">Sales_data::isbn</span><span class="params">(<span class="keyword">const</span> Sales_data* <span class="keyword">const</span> <span class="keyword">this</span>)</span></span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>-&gt;bookNo&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="类作用域和成员函数"><a href="#类作用域和成员函数" class="headerlink" title="类作用域和成员函数"></a>类作用域和成员函数</h2><p>编译器处理类：首先编译成员的声明，然后才轮到成员函数体。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/20/C++%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C++输入和输出流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/C++%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E6%B5%81/">C++输入和输出流</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/20/C++%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-09-20T02:37:10.589Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h2 id="cin-cout"><a href="#cin-cout" class="headerlink" title="cin cout"></a>cin cout</h2><p>cin是istream类型的对象，out是ostream类型的对象。</p>
+<h2 id="向流写入数据"><a href="#向流写入数据" class="headerlink" title="向流写入数据"></a>向流写入数据</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter Two Numbers:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用输出运算符打印消息（&lt;&lt;）。</p>
+<p>&lt;&lt;运算符接受两个运算对象：左侧运算对象必须是一个ostream对象，右侧运算的对象是要打印的值。此运算符将给定的值写到给定的ostream对象中。输出运算符的计算结果就是左侧运算对象。</p>
+<h2 id="从流读取数据"><a href="#从流读取数据" class="headerlink" title="从流读取数据"></a>从流读取数据</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2;</span><br></pre></td></tr></table></figure>
+
+<p>输入运算符（&gt;&gt;）接受一个istream对象作为左侧运算对象，接受一个对象作为右侧运算对象。它从给定的istream中读入数据，并存入给定对象中。</p>
+<p>与输出运算符类似，输入运算符返回左侧对象作为其计算结果，所以表达式等价于。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">cin</span> &gt;&gt; v1 )&gt;&gt; v2;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/20/C++%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库面试整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">数据库面试整理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-09-19T08:35:05.423Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h2 id="1-触发器的作用"><a href="#1-触发器的作用" class="headerlink" title="1. 触发器的作用"></a>1. 触发器的作用</h2><p>触发器是一种特殊的存储过程，主要通过事件来触发而被执行的。它可以强化约束，来维护数据的完整性和一致性，可以跟踪数据库内的操作从而不允许未经许可的更新和变化。可以联级运算。</p>
+<h2 id="2-存储过程及调用"><a href="#2-存储过程及调用" class="headerlink" title="2. 存储过程及调用"></a>2. 存储过程及调用</h2><p>存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需要创建一次就可以在该程序中多次调用。如果某次操作需要执行多次SQL，使用存储过程比单纯使用SQL执行要快。</p>
+<p>调用：1）用一个命令对象来调用存储过程。2）外部程序调用</p>
+<h2 id="3-存储过程的优缺点"><a href="#3-存储过程的优缺点" class="headerlink" title="3. 存储过程的优缺点"></a>3. 存储过程的优缺点</h2><p>优点：</p>
+<ol>
+<li><p>存储过程是预编译过的，执行效率高</p>
+</li>
+<li><p>存储过程的代码直接存放于数据库中，通过存储过程名直接调用，减少网络通信</p>
+</li>
+<li><p>安全性高，执行存储过程需要一定的权限</p>
+</li>
+<li><p>可以重复使用，减少数据库开发人员的工作量</p>
+</li>
+</ol>
+<p>缺点：移植性差。由于存储过程将应用程序绑定到 SQL Server，因此使用存储过程封装业务逻辑将限制应用程序的可移植性。</p>
+<h2 id="4-存储过程与函数的区别"><a href="#4-存储过程与函数的区别" class="headerlink" title="4.存储过程与函数的区别"></a>4.存储过程与函数的区别</h2><table>
+<thead>
+<tr>
+<th>存储过程</th>
+<th>函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用于在数据库中完成特定的操作或者任务(插入，删除)</td>
+<td>用于特定的数据</td>
+</tr>
+<tr>
+<td>程序头部声明procedure</td>
+<td>程序头部声明用function</td>
+</tr>
+<tr>
+<td>程序头部声明不需要描述返回类型</td>
+<td>要返回声明类型</td>
+</tr>
+<tr>
+<td>可作为一个独立的PL/SQL语句来执行</td>
+<td>不能</td>
+</tr>
+<tr>
+<td>通过out/in out返回零个或多个值</td>
+<td>return返回一个值</td>
+</tr>
+<tr>
+<td>SQL语句中不可吊调用存储过程</td>
+<td>可以调用</td>
+</tr>
+</tbody></table>
+<h2 id="5-索引作用及优缺点"><a href="#5-索引作用及优缺点" class="headerlink" title="5. 索引作用及优缺点"></a>5. 索引作用及优缺点</h2><p>索引是一种特殊的查询表，数据库的搜索可以利用它加速对数据的检索。类似于生活中的书的目录。索引是唯一的，创建索引允许指定单个列或多个列。</p>
+<p>缺点：减慢了数据录入速度，同时增加了数据库的尺寸大小。</p>
+<p>什么字段适合：唯一 不为空 经常被查询的字段</p>
+<h2 id="6-事务和锁"><a href="#6-事务和锁" class="headerlink" title="6. 事务和锁"></a>6. 事务和锁</h2><p>事务就是被绑定在一起作为一个逻辑工作单元的SQL语句分组，如果任何一个语句操作失败那么整个操作就被失败，以后操作就会回滚到操作前状态，或者是上有个节点。为了确保要么执行，要么不执行，就可以使用事务。要将有组语句作为事务考虑，就需要通过ACID测试，即原子性，一致性，隔离性和持久性。</p>
+<p>锁：在所以的DBMS中，锁是实现事务的关键，锁可以保证事务的完整性和并发性。与现实生活中锁一样，它可以使某些数据的拥有者，在某段时间内不能使用某些数据或数据结构。当然锁还分级别的。</p>
+<h2 id="7-视图-游标"><a href="#7-视图-游标" class="headerlink" title="7.视图 游标"></a>7.视图 游标</h2><p>视图：是一种虚拟的表，具有和物理表相同的功能。可以对视图进行增，改，查，操作，试图通常是有一个表或者多个表的行或列的子集。对视图的修改会影响基本表。它使得我们获取数据更容易，相比多表查询。</p>
+<p>游标：是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
+<h2 id="8-视图的优缺点"><a href="#8-视图的优缺点" class="headerlink" title="8. 视图的优缺点"></a>8. 视图的优缺点</h2><p>优点： </p>
+<ol>
+<li><p>对数据库的访问，因为视图可以有选择性的选取数据库里的一部分。 </p>
+</li>
+<li><p>用户通过简单的查询可以从复杂查询中得到结果。</p>
+</li>
+<li><p>维护数据的独立性，试图可从多个表检索数据。 </p>
+</li>
+<li><p>对于相同的数据可产生不同的视图。</p>
+</li>
+</ol>
+<p>缺点： 查询视图时，必须把视图的查询转化成对基本表的查询，如果这个视图是由一个复杂的多表查询所定义，那么，那么就无法更改数据</p>
+<h2 id="9-表连接方式-区别"><a href="#9-表连接方式-区别" class="headerlink" title="9. 表连接方式 区别"></a>9. 表连接方式 区别</h2><p>内连接、自连接、外连接（左、右、全）、交叉连接 </p>
+<p>内连接：只有两个元素表相匹配的才能在结果集中显示。 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.c1,B.c2 <span class="keyword">from</span> A <span class="keyword">join</span> B <span class="keyword">on</span> A.c3 = B.c3;</span><br></pre></td></tr></table></figure>
+
+<p>左外连接:左边为驱动表，驱动表的数据全部显示，匹配表的不匹配的不会显示。 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.c1,B.c2 <span class="keyword">from</span> A <span class="keyword">left</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.c3 = B.c3;</span><br></pre></td></tr></table></figure>
+
+<p>右外连接:右边为驱动表，驱动表的数据全部显示，匹配表的不匹配的不会显示。 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.c1,B.c2 <span class="keyword">from</span> A <span class="keyword">right</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.c3 = B.c3;</span><br></pre></td></tr></table></figure>
+
+<p>全外连接：连接的表中不匹配的数据全部会显示出来。 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.c1,B.c2 <span class="keyword">from</span> A <span class="keyword">full</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.c3 = B.c3;</span><br></pre></td></tr></table></figure>
+
+<p>交叉连接： 笛卡尔效应，显示的结果是链接表数的乘积。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.c1,B.c2 <span class="keyword">from</span> A,B;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-主键和外键的区别"><a href="#10-主键和外键的区别" class="headerlink" title="10. 主键和外键的区别"></a>10. 主键和外键的区别</h2><p>主键在本表中是唯一的、不可唯空的，外键可以重复可以唯空；外键和另一张表的主键关联，不能创建对应表中不存在的外键。</p>
+<h2 id="11-优化查询速度"><a href="#11-优化查询速度" class="headerlink" title="11. 优化查询速度"></a>11. 优化查询速度</h2><ol>
+<li>建索引 </li>
+<li>减少表之间的关联 </li>
+<li>优化sql，尽量让sql很快定位数据，不要让sql做全表查询，应该走索引,把数据量大的表排在前面 </li>
+<li>简化查询字段，没用的字段不要，已经对返回结果的控制，尽量返回少量数据 </li>
+</ol>
+<h2 id="12-数据库三范式"><a href="#12-数据库三范式" class="headerlink" title="12. 数据库三范式"></a>12. 数据库三范式</h2><p>第一范式：列不可再分 </p>
+<p>第二范式：行可以唯一区分，主键约束</p>
+<p>第三范式：表的非主属性不能依赖与其他表的非主属性 </p>
+<h2 id="13-union和union-all有什么不同"><a href="#13-union和union-all有什么不同" class="headerlink" title="13. union和union all有什么不同"></a>13. union和union all有什么不同</h2><p>UNION在进行表链接后会筛选掉重复的记录，所以在表链接后会对所产生的结果集进行排序运算，删除重复的记录再返回结果。实际大部分应用中是不会产生重复的记录，最常见的是过程表与历史表UNION。 UNION ALL只是简单的将两个结果合并后就返回。这样，如果返回的两个结果集中有重复的数据，那么返回的结果集就会包含重复的数据了。 从效率上说，UNION ALL 要比UNION快很多，所以，如果可以确认合并的两个结果集中不包含重复的数据的话，那么就使用UNION ALL。</p>
+<h2 id="14-truncate与-delete区别"><a href="#14-truncate与-delete区别" class="headerlink" title="14. truncate与 delete区别"></a>14. truncate与 delete区别</h2><p>TRUNCATE在功能上与不带 WHERE 子句的 DELETE 语句相同：二者均删除表中的全部行。TRUNCATE比DELETE 速度快，且使用的<a href="https://m.2cto.com/os/" target="_blank" rel="noopener">系统</a>和事务日志资源少。 DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。<br>TRUNCATE通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。</p>
+<p>TRUNCATE TABLE ：删除内容、释放空间但不删除定义。<br>DELETE TABLE: 删除内容不删除定义，不释放空间。<br>DROP TABLE ：删除内容和定义，释放空间。</p>
+<h2 id="15-维护数据库的完整性和一致性"><a href="#15-维护数据库的完整性和一致性" class="headerlink" title="15. 维护数据库的完整性和一致性"></a>15. 维护数据库的完整性和一致性</h2><p>尽可能使用约束，如check,主键，外键，非空字段等来约束，这样做效率最高，也最方便。其次是使用触发器，这种方法可以保证，无论什么业务系统访问数据库都可以保证数据的完整新和一致性。最后考虑的是自写业务逻辑，但这样做麻烦，编程复杂，效率低下。</p>
+<h2 id="16-事务的隔离级别"><a href="#16-事务的隔离级别" class="headerlink" title="16. 事务的隔离级别"></a>16. 事务的隔离级别</h2><p>事务隔离级别包括： 原子性，即不可分割性，事务要么全部被执行，要么就全部不被执行； 一致性或可串性，事务的执行使得数据库从一种正确状态转换成另一种正确状态； 隔离性，在事务正确提交之前，不允许把该事务对数据的任何改变提供给任何其他事务； 持久性,事务正确提交后，其结果将永久保存在数据库中，即使在事务提交后有了其他故障，事务的处理结果也会得到保存。</p>
+<h2 id="17-使用索引查询一定能提高查询的性能吗？"><a href="#17-使用索引查询一定能提高查询的性能吗？" class="headerlink" title="17. 使用索引查询一定能提高查询的性能吗？"></a>17. 使用索引查询一定能提高查询的性能吗？</h2><p>通常,通过索引查询数据比全表扫描要快.但是我们也必须注意到它的代价. 索引需要空间来存储,也需要定期维护, 每当有记录在表中增减或索引列被修改时,索引本身也会被修改. 这意味着每条记录的INSERT,DELETE,UPDATE将为此多付出4,5 次的磁盘I/O. 因为索引需要额外的存储空间和处理,那些不必要的索引反而会使查询反应时间变慢.使用索引查询不一定能提高查询性能,索引范围查询(INDEX RANGE SCAN)适用于两种情况: 基于一个范围的检索,一般查询返回结果集小于表中记录数的30%宜采用; 基于非唯一性索引的检索 索引就是为了提高查询性能而存在的,如果在查询中索引没有提高性能,只能说是用错了索引,或者讲是场合不同</p>
+<h2 id="18-查询A-ID-Name-表中第31至40条记录，ID作为主键可能是不连续增长的列，-查询语句？"><a href="#18-查询A-ID-Name-表中第31至40条记录，ID作为主键可能是不连续增长的列，-查询语句？" class="headerlink" title="18. 查询A(ID,Name)表中第31至40条记录，ID作为主键可能是不连续增长的列， 查询语句？"></a>18. 查询A(ID,Name)表中第31至40条记录，ID作为主键可能是不连续增长的列， 查询语句？</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> top <span class="number">10</span> * <span class="keyword">from</span> A </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">ID</span> &gt; </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">max</span>(<span class="keyword">ID</span>) <span class="keyword">from</span> </span><br><span class="line">(<span class="keyword">select</span> top <span class="number">10</span> * <span class="keyword">from</span> A <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">ID</span>) T) <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">ID</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="19-分页查询"><a href="#19-分页查询" class="headerlink" title="19. 分页查询"></a>19. 分页查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> o.* <span class="keyword">from</span> (<span class="keyword">sql</span>) o <span class="keyword">limit</span> firstIndex,pageSize</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-大端与小端" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/13/%E5%A4%A7%E7%AB%AF%E4%B8%8E%E5%B0%8F%E7%AB%AF/">大端与小端</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/13/%E5%A4%A7%E7%AB%AF%E4%B8%8E%E5%B0%8F%E7%AB%AF/" class="archive-article-date">
+  	<time datetime="2020-09-13T07:05:18.564Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="大端-小端"><a href="#大端-小端" class="headerlink" title="大端 小端"></a>大端 小端</h2><p>大端：数据的低位保存在内存的高地址中</p>
+<p>小端：数据的低位保存在内存的低地址中</p>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p>采用联合体来判断，联合体union的存放顺序是所有成员都从低地址开始存放。设i值为1，所以如果低端，那么c的值也是1.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">    &#125;un;</span><br><span class="line">    </span><br><span class="line">    un.i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (un.c == <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"低端"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"高端"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/13/%E5%A4%A7%E7%AB%AF%E4%B8%8E%E5%B0%8F%E7%AB%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode——24点游戏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -415,400 +1182,6 @@
 
 
   
-    <article id="post-leetcode——比特位计数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/">leetcode——比特位计数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-11T01:55:18.152Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个非负整数 <strong>num</strong>。对于 <strong>0 ≤ i ≤ num</strong> 范围中的每个数字 <strong>i</strong> ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
-        
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode——长度最小的子数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/">leetcode——长度最小的子数组</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-09-11T01:55:17.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。</p>
-        
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode——乘法表中第k小的数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/">leetcode——乘法表中第k小的数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-11T01:55:17.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>几乎每一个人都用 乘法表。但是你能在乘法表中快速找到第k小的数字吗？</p>
-<p>给定高度m 、宽度n 的一张 m * n的乘法表，以及正整数k，你需要返回表中第k 小的数字。</p>
-        
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%B9%98%E6%B3%95%E8%A1%A8%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode——岛屿数量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">leetcode——岛屿数量</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-09-11T01:55:16.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
-<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
-<p>此外，你可以假设该网格的四条边均被水包围。</p>
-        
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode——递增子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">leetcode——递增子序列</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-09-11T01:55:16.573Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。</p>
-<p>输入: [4, 6, 7, 7]<br>输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]</p>
-        
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode——二叉树的锯齿形层次遍历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">leetcode——二叉树的锯齿形层次遍历</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/" class="archive-article-date">
-  	<time datetime="2020-09-11T01:55:16.273Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树，返回其节点值的锯齿形层次遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。</p>
-        
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -985,7 +1358,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个混子&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">如果觉得还不错的话，去github帮我点个星吧！</div>
   	  	
     	</section>
     
